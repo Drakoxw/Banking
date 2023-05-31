@@ -6,11 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Domain\" />
-    <Folder Include="Handlers\" />
-    <Folder Include="Infrastructure\" />
-    <Folder Include="Producers\" />
-  </ItemGroup>
-
 </Project>
