@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
-    <Folder Include="Aggregates\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Banking.Account.Command.Domain\Banking.Account.Command.Domain.csproj" />
   </ItemGroup>
 

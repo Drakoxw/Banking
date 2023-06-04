@@ -37,7 +37,7 @@ namespace Banking.Account.Command.Infrastucture.Repositories
         public async Task<IEnumerable<TDocument>> GetAll()
         {
            return await collection.Find(p => true).ToListAsync();
-        }
+        }   
 
         public async Task<TDocument> GetById(string id)
         {
