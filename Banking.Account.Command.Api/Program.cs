@@ -2,6 +2,7 @@ using Banking.Account.Command.Aplication.Features.BankAccounts.Commands.OpenAcco
 using Banking.Account.Command.Aplication.Models;
 using Banking.Account.Command.Infrastucture;
 using MediatR;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<KafkaSettings>(builder.Configuration.GetSection("KafkaSettings"));
 builder.Services.Configure<MongoSettings>(builder.Configuration.GetSection("MongoSettings"));
 
-builder.Services.AddMediatR(typeof(OpenAccountsCommand).Assembly);
+//builder.Services.AddMediatR(typeof(OpenAccountsCommand).Assembly);
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(OpenAccountCommandHandler).GetTypeInfo().Assembly));
+
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddCors(options =>
@@ -28,7 +31,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline.sd
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -3,7 +3,7 @@ using Banking.Account.Command.Domain.Common;
 
 namespace Banking.Account.Command.Aplication.Contracts.Persistence
 {
-    public interface IMongoRepository<TDocument> where TDocument : IDocument
+    public interface IMongoRepository<TDocument> where TDocument: IDocument
     {
         Task<TDocument> GetById(string id);
 
