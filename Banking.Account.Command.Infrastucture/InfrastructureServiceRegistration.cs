@@ -23,7 +23,7 @@ namespace Banking.Account.Command.Infrastucture
             BsonClassMap.RegisterClassMap<FundsDepositedEvent>();
             BsonClassMap.RegisterClassMap<FundsWithdrawnEvent>();
 
-            services.AddScoped(typeof(IMongoRepository<>), typeof(IMongoRepository<>));
+            services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
             services.AddScoped<EventProducer, AccountEventProducer>();
             services.AddTransient<IEventStoreRepository, EventStoreRepository>();
             services.AddTransient<EventStore, AccountEventStore>();

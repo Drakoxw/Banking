@@ -5,12 +5,11 @@ using Banking.Account.Command.Aplication.Features.BankAccounts.Commands.Withdraw
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using System.Reflection.Metadata.Ecma335;
 
 namespace Banking.Account.Command.Api.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller")]
+    [Route("api/v1/[controller]")]
     public class BankAccountOperationAccountController: ControllerBase
     {
         private IMediator _mediator;
@@ -40,7 +39,7 @@ namespace Banking.Account.Command.Api.Controllers
             return await _mediator.Send(command);
         }
 
-        [HttpDelete("DepositFund/{id}", Name = "DepositFund")]
+        [HttpPut("DepositFund/{id}", Name = "DepositFund")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<bool>> DepositFund(string id, [FromBody] DepositeFundCommand command)
@@ -49,7 +48,7 @@ namespace Banking.Account.Command.Api.Controllers
             return await _mediator.Send(command);
         }
 
-        [HttpDelete("WithdrawnFunds/{id}", Name = "WithdrawnFunds")]
+        [HttpPut("WithdrawnFunds/{id}", Name = "WithdrawnFunds")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<bool>> WithdrawnFunds(string id, [FromBody] WithdrawnFundCommand command)
