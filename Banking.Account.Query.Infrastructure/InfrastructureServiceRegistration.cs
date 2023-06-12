@@ -13,9 +13,9 @@ namespace Banking.Account.Query.Infrastructure
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("ConnectionString");
-            services.AddDbContext<MySqlDbContext>(opt =>
+            services.AddDbContext<MySqlDbContext>(options =>
             {
-                opt.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
             });
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<IBankAccountRepository, BankAccountRepository>();
