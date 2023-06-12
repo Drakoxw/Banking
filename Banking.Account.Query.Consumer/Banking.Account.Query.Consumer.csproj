@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,12 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Banking.Account.Command.Infrastucture\Banking.Account.Command.Infrastucture.csproj" />
+    <ProjectReference Include="..\Banking.Account.Query.Infrastructure\Banking.Account.Query.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
